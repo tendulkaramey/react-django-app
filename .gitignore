@@ -2,24 +2,25 @@
 
 # dependencies
 appclient/node_modules
-./appclient/.pnp
-./appclient/.pnp.js
+appclient/.pnp
+appclient/.pnp.js
 
 # testing
-../appclient/coverage
+appclient/coverage
 
 # production
-../appclient/build
+appclient/build
 
 # misc
-../appclient/.DS_Store
-../appclient/.env.local
-../appclient/.env.development.local
-../appclient/.env.test.local
-../appclient/.env.production.local
+appclient/.DS_Store
+appclient/.env.local
+appclient/.env.development.local
+appclient/.env.test.local
+appclient/.env.production.local
 
-../appclient/npm-debug.log*
-../appclient/yarn-debug.log*
-../appclient/yarn-error.log*
+appclient/npm-debug.log*
+appclient/yarn-debug.log*
+appclient/yarn-error.log*
 
-./appserver/appserver/__pycache__/*
+appserver/appserver/__pycache__/*
+appserver/.env

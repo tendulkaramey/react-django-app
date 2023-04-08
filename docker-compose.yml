@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./appserver
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./appserver/:/usr/src/app/
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  
+  webclient:
+    build: ./appclient
+    ports:
+      - 3000:3000
+    volumes:
+      - ./appclient:/usr/src/app/
+      - node-modules:/usr/src/app/node_modules
+    command: npm start
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@portfolionow.in
+      PGADMIN_DEFAULT_PASSWORD: root123
+    ports:
+      - "5050:80"
+
+volumes:
+  postgres_data:
+  node-modules:
+  
